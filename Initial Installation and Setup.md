@@ -1,5 +1,5 @@
 # Initial Installation and Setup
-#
+<BR>
 ## Oracle Virtual Box
 <OL>
 <LI>The latest version of Oracle Virtual Box for running a Virtual Machine (VM) on your local PC can be downloaded from this web site - http://http://www.oracle.com/technetwork/server-storage/virtualbox/downloads/index.html.</LI>
@@ -8,3 +8,5 @@
 </OL>
 
 ## Cloudera Virtual Machine (VM)
+<OL>
+</OL>
