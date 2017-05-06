@@ -16,14 +16,17 @@
 ## Cloudera Virtual Machine (VM)
 <OL>
 <LI>The latest version of Cloudera Virtual Machine (VM) - Quickstarts for local PCs can be downloaded from the following website: http://cloudera.com/downloads.html.
-
+![image](https://cloud.githubusercontent.com/assets/19809692/25776640/f912c0fe-3291-11e7-8dc9-e542bf4b5f43.png)
+</LI>
+<LI>Click on <b>Quickstarts</b> to download one of the Quickstarts VM (current version is 5.10)</LI>
+<LI>Download the Quickstart VM zip file to the local PC and uncompress it to a directory from where it can be referenced easily.</LI>
+<LI>Start/Open the Oracle Virtual Box installed previously. Using the <b>Import Appliance</b> option from its main menu, import the Cloudera Quickstart VM.</LI>
+<LI>Once the VM is imported successfully, it will be displayed in the Virtual Box</LI>
+<LI>Here is the view of the general setup of Cloudera VM from the Oracle Virtual Box:
 
 ![image](https://cloud.githubusercontent.com/assets/19809692/25776527/b0ed9838-328e-11e7-95f0-0fc5801d0543.png)
-
-<a href=https://cloud.githubusercontent.com/assets/19809692/25776527/b0ed9838-328e-11e7-95f0-0fc5801d0543.png></a>
-
 </LI>
-<LI></LI>
+<LI>Review all the setup options especially <i>memory</i> to ensure that the VM will run successfully on your local machine. For Cloudera VMs 5.5 and above, 8 MB of RAM should be allocated for decreased latency.</LI>
 <LI></LI>
 <LI></LI>
 <LI></LI>
