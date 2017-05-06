@@ -16,6 +16,7 @@
 ## Cloudera Virtual Machine (VM)
 <OL>
 <LI>The latest version of Cloudera Virtual Machine (VM) - Quickstarts for local PCs can be downloaded from the following website: http://cloudera.com/downloads.html.
+
 ![image](https://cloud.githubusercontent.com/assets/19809692/25776640/f912c0fe-3291-11e7-8dc9-e542bf4b5f43.png)
 </LI>
 <LI>Click on <b>Quickstarts</b> to download one of the Quickstarts VM (current version available is 5.10)</LI>
