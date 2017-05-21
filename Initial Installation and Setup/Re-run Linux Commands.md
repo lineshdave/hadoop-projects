@@ -1,5 +1,7 @@
 ### How to Re-run Linux Commands
 
+#### Source: https://superuser.com/questions/7414/how-can-i-search-the-bash-history-and-rerun-a-command
+
 Type Ctrl R at the command line and start typing the previous command. Once a result appears keep hitting Ctrl R to see other matches. When the command you want appears, simply press Enter
 
 Note that while Ctrl R is the default, if you wanted the command (reverse-search-history) to be bound to Ctrl T you could configure that with the following:
