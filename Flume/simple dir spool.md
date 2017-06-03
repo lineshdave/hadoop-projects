@@ -42,7 +42,8 @@ linesh.sinks.sink1.hdfs.fileType=DataStream
 ./linesh-commands.txt (make sure that execute permission on this commands script/file is provided)
 </pre>
 
-##### <i>Files can be copied in the local directory while the commands script is running or prior.<i>
+##### <i>Files can be copied in the local directory while the commands script is running or prior.</i>
 
 ### Snapshot of the HDFS Directory Output (using Hue)
+![flume-simple-watch-dir snapshot](https://cloud.githubusercontent.com/assets/19809692/26755640/424e6998-485f-11e7-8461-3d48335b2004.JPG)
 
