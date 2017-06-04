@@ -55,7 +55,7 @@ j_data = FOREACH jned_proj_data
 
 final_data = ORDER j_data BY stock_symbol;
 
-STORE j_data INTO '/user/cloudera/output/handsontrain/pig/max_volatility_rec' USING PigStorage('|');
+STORE j_data INTO '/user/cloudera/output/handson_train/pig/max_volatility_rec' USING PigStorage('|');
 </pre>
 
 ### Output
