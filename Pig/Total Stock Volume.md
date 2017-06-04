@@ -1,5 +1,8 @@
 ## Total Stock Volume of Stocks (subset)
 
+### Problem Statement
+Find the total stock volume of each traded stock found in the subset of the dataset uploaded in the HDFS directory. 
+
 ### Pig Script
 <pre>
 raw_data = LOAD '/user/cloudera/rawdata/handson_train/nasdaq_daily_prices' using PigStorage(',')
