@@ -4,6 +4,7 @@
 Find the record with max volatility for each stock. Volatility is  stock_price_high - stock_price_low.
 
 ### Algorithm
+<pre>
 -- 1. get the data
 -- 2. remove header
 -- 3. project stock_symbol, (stock_price_high - stock_price_low) as volatility
@@ -16,6 +17,7 @@ Find the record with max volatility for each stock. Volatility is  stock_price_h
 -- select concat(sym, (high_price - low_price)) key, ...... from nasdaq_daily_prices n
 -- join (select concat(sym, max(high_price - low_price)) key from nasdaq_daily_prices group by sym) v
 -- on v.key = n.key
+</pre>
 
 ### Pig Script
 <pre>
