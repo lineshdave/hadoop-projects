@@ -28,7 +28,9 @@ agg_data = FOREACH grp_data GENERATE group AS symbol, SUM(proj_data.stock_price_
 sorted_data = ORDER agg_data BY symbol ASC;
 
 -- store records in the ouput location
-STORE sorted_data INTO '/user/cloudera/output/handson_train/pig/nasdaq_daily_prices/avg_closing_price' USING PigStorage('|');
+STORE sorted_data INTO '/user/cloudera/output/handson_train/pig/nasdaq_daily_prices/avg_closing_price' 
+      USING PigStorage('|');
 </pre>
 
 ### Output
+An output file part-r-00000 is created in the following HDFS directory - <i>/user/cloudera/output/handson_train/pig/nasdaq_daily_prices/avg_closing_price</i> along with the <i>_SUCCESS</i> file to mark the successful completion and running of the above script. This script can be run in the GRUNT interactive Pig environment.
