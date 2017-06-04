@@ -4,6 +4,7 @@
 Find the total stock volume of each traded stock found in the subset of the dataset uploaded in the HDFS directory. Store the results in a fashion ordered by stock volume in a descending order.
 
 ### Algorithm
+![pig first example algorithm](https://cloud.githubusercontent.com/assets/19809692/26765343/2561ac20-4948-11e7-9956-40d2b3a3101d.JPG)
 
 ### Pig Script
 <pre>
