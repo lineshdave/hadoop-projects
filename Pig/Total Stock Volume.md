@@ -15,7 +15,7 @@ group_data = GROUP proj_data BY stock_symbol;
 aggr_data = FOREACH group_data 
             GENERATE group AS stock_symbol, SUM(proj_data.stock_volume) AS stock_total;
 sorted_data = ORDER aggr_data BY stock_total DESC;
-STORE sorted_data INTO '/user/cloudera/output/handson_train/nasdaq_daily_prices/tot_stock_volume'
+STORE sorted_data INTO '/user/cloudera/output/handson_train/pig/nasdaq_daily_prices/tot_stock_volume'
       USING PigStorage(',');
 </pre>
 
