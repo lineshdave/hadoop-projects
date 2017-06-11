@@ -34,3 +34,5 @@ STORE sorted_data INTO '/user/cloudera/output/handson_train/pig/nasdaq_daily_pri
 
 ### Output
 An output file part-r-00000 is created in the following HDFS directory - <i>/user/cloudera/output/handson_train/pig/nasdaq_daily_prices/avg_closing_price</i> along with the <i>_SUCCESS</i> file to mark the successful completion and running of the above script. This script can be run in the GRUNT interactive Pig environment.
+
+
