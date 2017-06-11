@@ -61,3 +61,5 @@ STORE j_data INTO '/user/cloudera/output/handson_train/pig/nasdaq_daily_prices/m
 
 ### Output
 An output file <i>part-r-00000</i> is created in the following HDFS directory - <i>/user/cloudera/output/handson_train/pig/nasdaq_daily_prices/max_volatility_rec</i> along with the <i>_SUCCESS</i> file to mark the successful completion and running of the above script. This script can be run in the GRUNT interactive Pig environment.
+
+![image](https://user-images.githubusercontent.com/19809692/27015481-70b9012a-4edc-11e7-8c01-8ca52bb822e8.png)
