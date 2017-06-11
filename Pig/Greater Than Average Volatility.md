@@ -4,6 +4,14 @@
 Find records that have volatility greater than its average volatility for each stock in the entire dataset. Order the results by the stock symbol and store in a pipe delimited file
 
 ### Algorithm
+1. Load all records from the dataset.
+2. Filter the header line from the loaded records.
+3. Add calculated volatiltiy information to each record.
+4. Find average volatility for each stock symbol.
+5. Merge average volatility for each stock record in the dataset.
+6. Filter stock records that have volatility greater than the average volatility.
+7. Add the other record columns to the filtered stock records from step-6 above.
+8. Save the entire updated stock records using the PigStorage.
 
 ### Pig Script
 <pre>
