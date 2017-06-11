@@ -54,3 +54,5 @@ projected_data_2 = FOREACH wo_header_data GENERATE
 
 ### Output
 An output file part-r-00000 is created in the following HDFS directory - <i>/user/cloudera/output/handson_train/pig/nasdaq_daily_prices/avg_volatility_rec</i> along with the <i>_SUCCESS</i> file to mark the successful completion and running of the above script. This script can be run in the GRUNT interactive Pig environment OR executed from the shell command line using the "-f" option (pig -f xxxx.pig).
+
+![image](https://user-images.githubusercontent.com/19809692/27015430-903294ae-4edb-11e7-862d-97b40b6bb87e.png)
