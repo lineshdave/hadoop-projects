@@ -21,10 +21,48 @@ The data file <i>NASDAQ_daily_prices_subset.csv</i> is placed in one of the user
 ### Movie Lens Dataset
 
 #### Format
-CSV File publicly available
+CSV files publicly available
+
+#### List of Files
+<OL>
+<LI> movies.csv </LI>
+<LI> ratings.csv </LI>
+<LI> tags.csv </LI>
+<LI> genome-scores.csv </LI>
+<LI> genome-tags.csv </LI>
+</OL>
 
 #### Structure/Columns
 <pre>
+# movies.csv
+movieId,title,genres
+1,Toy Story (1995),Adventure|Animation|Children|Comedy|Fantasy
+2,Jumanji (1995),Adventure|Children|Fantasy
+3,Grumpier Old Men (1995),Comedy|Romance
+
+# ratings.csv
+userId,movieId,rating,timestamp
+1,122,2.0,945544824
+1,172,1.0,945544871
+1,1221,5.0,945544788
+
+# tags.csv
+userId,movieId,tag,timestamp
+28,63062,angelina jolie,1263047558
+40,4973,Poetic,1436439070
+40,117533,privacy,1436439140
+
+# genome-scores.csv
+movieId,tagId,relevance
+1,1,0.02400000000000002
+1,2,0.02400000000000002
+1,3,0.05475000000000002
+
+# genome-tags.csv
+tagId,tag
+1,007
+2,007 (series)
+3,18th century
 </pre>
 
 #### Shell Script
@@ -49,3 +87,5 @@ hdfs dfs -moveFromLocal ml-latest/genome-scores.csv /user/cloudera/rawdata/hands
 </pre>
 
 #### Data File Placement
+
+The data files list above are placed in multiple user-created sub-directories in HDFS named above within the main directory: - <i>/user/cloudera/rawdata/handson_train/movielens/latest/</i>.
