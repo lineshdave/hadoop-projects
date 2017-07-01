@@ -7,6 +7,7 @@ Desired Output:
 movieId, title, totalRating, ratingCount, averageRating
 
 ### Algorithm
+<pre>
 -- find all movies and their titles
 
 -- movieId,title,genres
@@ -26,6 +27,7 @@ movieId, title, totalRating, ratingCount, averageRating
 -- load the data from source
 -- remove the header
 -- summarize counts on each group (movie)
+</pre>
 
 ### Pig Script
 <pre>
