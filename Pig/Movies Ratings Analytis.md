@@ -102,5 +102,6 @@ STORE sorted_ratings INTO '/user/cloudera/output/handson_train/pig/movielens/mov
 An output file part-r-00000 is created in the text-file directory within the following HDFS directory - <i>/user/cloudera/output/handson_train/pig/movielens/movies_ratings_analysis</i>. This directory also contains a <i>_SUCCESS</i> file to mark the successful completion and running of the above script. This script can be run in the GRUNT interactive Pig environment or directly from the command using the syntax "pig -f <i>filename</i>" (without the quotes and <i>filename</i> to be replaced with the actual file name).
 
 #### Snapshot
+![image](https://user-images.githubusercontent.com/19809692/27765744-4cd5aa22-5e88-11e7-9e61-e68de200ded3.png)
 
 
