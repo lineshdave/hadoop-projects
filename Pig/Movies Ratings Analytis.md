@@ -104,4 +104,5 @@ An output file part-r-00000 is created in the text-file directory within the fol
 #### Snapshot
 ![image](https://user-images.githubusercontent.com/19809692/27765744-4cd5aa22-5e88-11e7-9e61-e68de200ded3.png)
 
+![image](https://user-images.githubusercontent.com/19809692/27765754-9e155a4a-5e88-11e7-9a2e-816389ab9bd4.png)
 
