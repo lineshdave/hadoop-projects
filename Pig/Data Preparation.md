@@ -17,3 +17,35 @@ NASDAQ,DWCH,2002-07-10,3.09,3.14,3.09,3.14,2400,1.57
 #### Data File Placement
 
 The data file <i>NASDAQ_daily_prices_subset.csv</i> is placed in one of the user-created directories in HDFS: - <i>/user/cloudera/rawdata/handson_train/nasdaq_daily_prices/</i>.
+
+### Movie Lens Dataset
+
+#### Format
+CSV File publicly available
+
+#### Structure/Columns
+<pre>
+</pre>
+
+#### Shell Script
+<pre>
+# Download the ml-latest zip file from the movielens web site
+wget http://files.grouplens.org/datasets/movielens/ml-latest.zip
+
+# unzip the downloaded ml-latest zip file
+unzip ml-latest.zip
+
+hdfs dfs -mkdir -p /user/cloudera/rawdata/handson_train/movielens/latest/movies
+hdfs dfs -mkdir -p /user/cloudera/rawdata/handson_train/movielens/latest/ratings
+hdfs dfs -mkdir -p /user/cloudera/rawdata/handson_train/movielens/latest/tags
+hdfs dfs -mkdir -p /user/cloudera/rawdata/handson_train/movielens/latest/genome.scores
+hdfs dfs -mkdir -p /user/cloudera/rawdata/handson_train/movielens/latest/genome.tags
+
+hdfs dfs -moveFromLocal ml-latest/movies.csv /user/cloudera/rawdata/handson_train/movielens/latest/movies
+hdfs dfs -moveFromLocal ml-latest/ratings.csv /user/cloudera/rawdata/handson_train/movielens/latest/ratings
+hdfs dfs -moveFromLocal ml-latest/tags.csv /user/cloudera/rawdata/handson_train/movielens/latest/tags
+hdfs dfs -moveFromLocal ml-latest/genome-tags.csv /user/cloudera/rawdata/handson_train/movielens/latest/genome.tags
+hdfs dfs -moveFromLocal ml-latest/genome-scores.csv /user/cloudera/rawdata/handson_train/movielens/latest/genome.scores
+</pre>
+
+#### Data File Placement
