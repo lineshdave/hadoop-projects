@@ -25,6 +25,7 @@ Find the total number of movies listed against each genre.
 
 ### Pig Script
 <pre>
+### First Script - genre-count
 -- register new piggbank package jar
 register /home/cloudera/hadoop-training-projects/pig/movielens/piggybank-0.16.0.jar;
 
@@ -62,10 +63,60 @@ STORE sorted INTO '/user/cloudera/output/handson_train/pig/movielens/genre_count
       USING  JsonStorage();
 STORE sorted INTO '/user/cloudera/output/handson_train/pig/movielens/genre_count/excel-file'
       USING  myXLSStorage();
+      
+ #### Second Script - genre-movie-count
+ -- Find total movies under each genre
+
+-- genre stats
+-- output
+-- genre, totalNumberofMovies
+
+-- register new piggybank package jar
+register /home/cloudera/hadoop-training-projects/pig/movielens/piggybank-0.16.0.jar;
+
+-- define new classes from the piggybank package
+DEFINE myCSVLoader org.apache.pig.piggybank.storage.CSVLoader();
+DEFINE myXLSStorage org.apache.pig.piggybank.storage.CSVExcelStorage();
+
+-- load the movie data
+raw_movie_full =
+LOAD '/user/cloudera/rawdata/handson_train/movielens/latest/movies'
+USING org.apache.pig.piggybank.storage.CSVLoader()
+AS (movieId:chararray, title:chararray, genres:chararray);
+
+-- remove the header
+raw_movie =
+FILTER raw_movie_full BY (movieId != 'movieId');
+
+-- project the movieId and genre
+movie_genre =
+FOREACH raw_movie
+GENERATE (long)movieId as movieId, FLATTEN(TOKENIZE(genres, '|')) as genre;
+
+-- group the data by genres
+grp_movie_genre =
+GROUP movie_genre BY genre;
+
+-- aggregate the grouped data
+agg_data =
+FOREACH grp_movie_genre GENERATE group as genre, COUNT(movie_genre) as num_movies;
+
+--sorting
+sorted = ORDER agg_data BY genre;
+
+STORE sorted INTO '/user/cloudera/output/handson_train/pig/movielens/genre_movie_count/default-file';
+STORE sorted INTO '/user/cloudera/output/handson_train/pig/movielens/genre_movie_count/text-file'
+      USING PigStorage(',');
+STORE sorted INTO '/user/cloudera/output/handson_train/pig/movielens/genre_movie_count/avro-file'
+      USING AvroStorage();
+STORE sorted INTO '/user/cloudera/output/handson_train/pig/movielens/genre_movie_count/json-file'
+      USING JsonStorage();
+STORE sorted INTO '/user/cloudera/output/handson_train/pig/movielens/genre_movie_count/excel'
+      USING myXLSStorage;
 </pre>
 
 ### Output
-An output file part-r-00000 is created in the following HDFS directories - <i>/user/cloudera/output/handson_train/pig/movielens/genre_count</i> along with the <i>_SUCCESS</i> file to mark the successful completion and running of the above script. This script can be run in the GRUNT interactive Pig environment or directly from the command using the syntax "pig -f <i>filename</i>" (without the quotes and <i>filename</i> to be replaced with the actual file name).
+An output file part-r-00000 is created in the following HDFS directories - <i>/user/cloudera/output/handson_train/pig/movielens/genre_count</i> and <i>/user/cloudera/output/handson_train/pig/movielens/genre_movie_count</i>. It also contains a <i>_SUCCESS</i> file to mark the successful completion and running of the above script. This script can be run in the GRUNT interactive Pig environment or directly from the command using the syntax "pig -f <i>filename</i>" (without the quotes and <i>filename</i> to be replaced with the actual file name).
 
 #### Snapshot - First Script
 ![image](https://user-images.githubusercontent.com/19809692/27765086-f7039d68-5e76-11e7-8f81-ea5e9b6db47a.png)
