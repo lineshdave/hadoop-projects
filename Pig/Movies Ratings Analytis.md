@@ -1,10 +1,13 @@
-## Total Movies Per Genre
+## Movies Ratings Analysis
 
 ### Problem Statement
-Find the total number of movies listed against each genre.
+Generate movie rating analyse
+
+Desired Output:
+movieId, title, totalRating, ratingCount, averageRating
 
 ### Algorithm
--- find all genres and the number of movies
+-- find all movies and their titles
 
 -- movieId,title,genres
 -- 1,Toy Story (1995),Adventure|Animation|Children|Comedy|Fantasy
@@ -13,115 +16,89 @@ Find the total number of movies listed against each genre.
 -- 4,"Waiting, to Exhale (1995)",Comedy|Drama|Romance
 -- 5,Father of the Bride Part II (1995),Comedy
 
+-- find all movies and their ratings
+
+-- movieId, ratings,datetime
+-- 1,2.5,1234567
+-- 1,3.5,5567899
+-- 2,4.5,5589879
+
 -- load the data from source
 -- remove the header
--- project one field genres
--- split the genres by a pipe   - (Adventure,Children,Fantasy)
--- flatten the tuple of splitted genres (Adventure)
---                                     (Children)
---                                     (Fantasy)
--- group the flattened tuple by name
--- get the count on each group
+-- summarize counts on each group (movie)
 
 ### Pig Script
 <pre>
-### First Script - genre-count
--- register new piggbank package jar
-register /home/cloudera/hadoop-training-projects/pig/movielens/piggybank-0.16.0.jar;
+-- register the new packages for loading CSV file and variance function
+register '/home/cloudera/hadoop-training-projects/pig/movielens/datafu-pig-incubating-1.3.1.jar';
+register '/home/cloudera/hadoop-training-projects/pig/movielens/piggybank-0.15.0.jar';
 
--- define new classes from piggbank jar
-DEFINE myCSVLoader org.apache.pig.piggybank.storage.CSVLoader();
-DEFINE myXLSStorage org.apache.pig.piggybank.storage.CSVExcelStorage();
-
--- load data
-data =
-LOAD '/user/cloudera/rawdata/handson_train/movielens/latest/movies'
-USING myCSVLoader()
-AS (movieId:chararray, title:chararray, genres:chararray);
-
--- remove header row
-headless = FILTER data BY movieId != 'movieId';
-
--- gather genres and flatten to avoid multiple rows
-flattened = FOREACH headless GENERATE FLATTEN(STRSPLIT(genres, '\\|', 0)) as f;
-
--- group each flattened genre record
-grouped = GROUP flattened BY f;
-
--- aggregate each genre record
-aggr = FOREACH grouped GENERATE (chararray)group as genre, COUNT(flattened) as num;
-
--- sort each aggregate genre record
-sorted  = ORDER aggr BY genre;
-
--- store output in different storage formats
-STORE sorted INTO '/user/cloudera/output/handson_train/pig/movielens/genre_count/text-file'
-      USING  PigStorage();
-STORE sorted INTO '/user/cloudera/output/handson_train/pig/movielens/genre_count/avro-file'
-      USING  AvroStorage();
-STORE sorted INTO '/user/cloudera/output/handson_train/pig/movielens/genre_count/json-file'
-      USING  JsonStorage();
-STORE sorted INTO '/user/cloudera/output/handson_train/pig/movielens/genre_count/excel-file'
-      USING  myXLSStorage();
-      
- #### Second Script - genre-movie-count
- -- Find total movies under each genre
-
--- genre stats
--- output
--- genre, totalNumberofMovies
-
--- register new piggybank package jar
-register /home/cloudera/hadoop-training-projects/pig/movielens/piggybank-0.16.0.jar;
-
--- define new classes from the piggybank package
-DEFINE myCSVLoader org.apache.pig.piggybank.storage.CSVLoader();
-DEFINE myXLSStorage org.apache.pig.piggybank.storage.CSVExcelStorage();
+-- define classes to be used from the above packages
+DEFINE VAR datafu.pig.stats.VAR();
+DEFINE CSVLoader org.apache.pig.piggybank.storage.CSVLoader();
 
 -- load the movie data
 raw_movie_full =
 LOAD '/user/cloudera/rawdata/handson_train/movielens/latest/movies'
-USING org.apache.pig.piggybank.storage.CSVLoader()
+USING CSVLoader()
 AS (movieId:chararray, title:chararray, genres:chararray);
 
--- remove the header
+--remove the header
 raw_movie =
 FILTER raw_movie_full BY (movieId != 'movieId');
 
--- project the movieId and genre
-movie_genre =
-FOREACH raw_movie
-GENERATE (long)movieId as movieId, FLATTEN(TOKENIZE(genres, '|')) as genre;
+-- project the movieId and title
+movie =
+FOREACH raw_movie GENERATE (long)movieId AS movieId, title;
 
--- group the data by genres
-grp_movie_genre =
-GROUP movie_genre BY genre;
+-- load the rating data
+raw_ratings_full =
+LOAD '/user/cloudera/rawdata/handson_train/movielens/latest/ratings'
+USING PigStorage(',')
+AS (userId:chararray, movieId:chararray, rating:chararray, timestamp:chararray);
 
--- aggregate the grouped data
-agg_data =
-FOREACH grp_movie_genre GENERATE group as genre, COUNT(movie_genre) as num_movies;
+--remove the header
+raw_ratings =
+FILTER raw_ratings_full BY (userId != 'userId');
 
---sorting
-sorted = ORDER agg_data BY genre;
+-- project the movieId and rating
+ratings =
+FOREACH raw_ratings
+GENERATE (long)movieId AS movieId, (float)rating AS rating;
 
-STORE sorted INTO '/user/cloudera/output/handson_train/pig/movielens/genre_movie_count/default-file';
-STORE sorted INTO '/user/cloudera/output/handson_train/pig/movielens/genre_movie_count/text-file'
-      USING PigStorage(',');
-STORE sorted INTO '/user/cloudera/output/handson_train/pig/movielens/genre_movie_count/avro-file'
-      USING AvroStorage();
-STORE sorted INTO '/user/cloudera/output/handson_train/pig/movielens/genre_movie_count/json-file'
-      USING JsonStorage();
-STORE sorted INTO '/user/cloudera/output/handson_train/pig/movielens/genre_movie_count/excel'
-      USING myXLSStorage;
+-- group the ratings by movieId
+grouped_ratings =
+GROUP ratings BY movieId;
+
+-- for each group, aggregate the rating
+movieId_ratings =
+FOREACH grouped_ratings
+GENERATE group AS movieId, (int)COUNT(ratings.movieId) AS num_rating,
+(float)SUM(ratings.rating) AS tot_rating, (float)AVG(ratings.rating) AS avg_rating,
+VAR(ratings.rating) AS rating_variance;
+
+-- join the collections
+movie_rating_jn =
+JOIN movieId_ratings BY movieId RIGHT, movie BY movieId;
+
+-- generate fields from the join
+movie_rating =
+FOREACH movie_rating_jn
+GENERATE movie::movieId AS movieId, movie::title AS movieTitle,
+movieId_ratings::tot_rating AS total_rating, movieId_ratings::num_rating AS num_ratings,
+movieId_ratings::avg_rating AS avg_rating, movieId_ratings::rating_variance AS var_rating;
+
+-- sort the movie ratings by number of ratings and average ratings in desc order
+sorted_ratings =
+ORDER movie_rating BY num_ratings DESC, avg_rating DESC;
+
+-- store the movie ratings
+STORE sorted_ratings INTO '/user/cloudera/output/handson_train/pig/movielens/movies_rating_analysis/text-file';
 </pre>
 
 ### Output
-An output file part-r-00000 is created in the following HDFS directories - <i>/user/cloudera/output/handson_train/pig/movielens/genre_count</i> and <i>/user/cloudera/output/handson_train/pig/movielens/genre_movie_count</i>. It also contains a <i>_SUCCESS</i> file to mark the successful completion and running of the above script. This script can be run in the GRUNT interactive Pig environment or directly from the command using the syntax "pig -f <i>filename</i>" (without the quotes and <i>filename</i> to be replaced with the actual file name).
+An output file part-r-00000 is created in the text-file directory within the following HDFS directory - <i>/user/cloudera/output/handson_train/pig/movielens/movies_ratings_analysis</i>. This directory also contains a <i>_SUCCESS</i> file to mark the successful completion and running of the above script. This script can be run in the GRUNT interactive Pig environment or directly from the command using the syntax "pig -f <i>filename</i>" (without the quotes and <i>filename</i> to be replaced with the actual file name).
 
-#### Snapshot - First Script
-![image](https://user-images.githubusercontent.com/19809692/27765086-f7039d68-5e76-11e7-8f81-ea5e9b6db47a.png)
-
-#### Snapshot - Second Script
-![image](https://user-images.githubusercontent.com/19809692/27765440-d86247b2-5e7e-11e7-804a-d9826a4a8fe1.png)
+#### Snapshot
 
 
