@@ -65,7 +65,7 @@ STORE sorted INTO '/user/cloudera/output/handson_train/pig/movielens/genre_count
 </pre>
 
 ### Output
-An output file part-r-00000 is created in the following HDFS directory - <i>/user/cloudera/output/handson_train/pig/movielens/genre_count</i> along with the <i>_SUCCESS</i> file to mark the successful completion and running of the above script. This script can be run in the GRUNT interactive Pig environment or directly from the command using the syntax "pig -f <filename>" (without the quotes and <filename> to be replaced with the actual file name).
+An output file part-r-00000 is created in the following HDFS directories - <i>/user/cloudera/output/handson_train/pig/movielens/genre_count</i> along with the <i>_SUCCESS</i> file to mark the successful completion and running of the above script. This script can be run in the GRUNT interactive Pig environment or directly from the command using the syntax "pig -f <i>filename</i>" (without the quotes and <i>filename</i> to be replaced with the actual file name).
 
 ![image](https://user-images.githubusercontent.com/19809692/27765086-f7039d68-5e76-11e7-8f81-ea5e9b6db47a.png)
 
