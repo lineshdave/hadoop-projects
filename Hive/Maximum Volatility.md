@@ -41,3 +41,4 @@ AND a.volatility = b.stock_price_high-b.stock_price_low;
 </pre>
 
 ### Output Extract
+![image](https://user-images.githubusercontent.com/19809692/27837646-6b96b6e0-60b3-11e7-982b-fa334758a942.png)
