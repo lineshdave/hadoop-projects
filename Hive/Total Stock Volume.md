@@ -27,10 +27,13 @@ The table for this exercise is created using command line -- beeline -u jdbc:hiv
 . . . . . . . . . . . . . . . . . . . . .> LOCATION "/user/cloudera/rawdata/handson_train/nasdaq_daily_prices/"
 . . . . . . . . . . . . . . . . . . . . .> TBLPROPERTIES("skip.header.line.count" = "1");
 </pre>
+
 ### Hive Query
+<pre>
 SELECT stock_symbol, sum(stock_volume) AS tot_stock_volume FROM daily_prices
 GROUP BY stock_symbol
 ORDER BY tot_stock_volume DESC;
+</pre>
 
 ### Output Extract
 ![image](https://user-images.githubusercontent.com/19809692/27839302-3d455700-60be-11e7-80c1-36cf760cfe52.png)
