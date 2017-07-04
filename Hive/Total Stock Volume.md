@@ -33,3 +33,4 @@ GROUP BY stock_symbol
 ORDER BY tot_stock_volume DESC;
 
 ### Output Extract
+![image](https://user-images.githubusercontent.com/19809692/27839302-3d455700-60be-11e7-80c1-36cf760cfe52.png)
