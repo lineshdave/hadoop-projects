@@ -154,12 +154,13 @@ GROUP BY stock_symbol;
 
 -- Find out highest price and highest dividends for each stock symbol.
 -- If one of them does not exist then keep Null values.
-SELECT prices.stock_symbol, prices.record_closing_price, dividends.record_dividend 
+SELECT prices.stock_symbol, dividends.stock_symbol,
+       prices.record_closing_price, dividends.record_dividend 
 FROM
 (SELECT stock_symbol, max(stock_price_close) record_closing_price 
- FROM nasdaq_daily_prices 
+ FROM tbl_nasdaq_daily_prices 
  GROUP BY stock_symbol) prices
-FULL OUTER JOIN
+FULL JOIN
 (SELECT stock_symbol, max(dividends) record_dividend 
  FROM nasdaq_dividends 
  GROUP BY stock_symbol) dividends
