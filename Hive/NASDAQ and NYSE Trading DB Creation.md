@@ -113,3 +113,5 @@ show create table nasdaq_daily_prices;
 show create table avro_dividend;
 
 </pre>
+
+### Output
