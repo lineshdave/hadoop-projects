@@ -115,3 +115,5 @@ show create table avro_dividend;
 </pre>
 
 ### Output
+![image](https://user-images.githubusercontent.com/19809692/27840823-548f1372-60ca-11e7-864a-0be1bb16aed6.png)
+![image](https://user-images.githubusercontent.com/19809692/27840815-31c34034-60ca-11e7-88e3-e7c8dae07eac.png)
