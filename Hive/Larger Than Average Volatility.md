@@ -44,3 +44,4 @@ AND b.stock_price_high-b.stock_price_low > a.avg_volatility;
 </pre>
 
 ### Output Extract
+![image](https://user-images.githubusercontent.com/19809692/27838826-061fdfe6-60bb-11e7-8143-0819991a676f.png)
