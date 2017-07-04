@@ -8,6 +8,10 @@ To demonstrate database and table creation capabilities in Hive, which includes 
 
 ### Hive Script
 
+This is a 3-parts script. The first script is used to mostly used to create, rename, and alter tables; second is used to load the tables; and, the third is used to query these tables.
+
+#### First Script - Table Creation
+
 <pre>
 --Drop tables and database if exists
 drop table handson_nasdaq.nasdaq_daily_prices;
@@ -114,6 +118,52 @@ show create table nasdaq_daily_prices;
 
 -- view details of our new avro table
 show create table avro_dividend;
+
+</pre>
+
+#### Second Script - Loading Tables
+
+<pre>
+use handson_nasdaq;
+
+--load data into the managed table tbl_nasdaq_daily_prices
+load data inpath '/user/cloudera/rawdata/handson_train/nasdaq_daily_prices'
+overwrite into table tbl_nasdaq_daily_prices;
+
+--load data into the managed parquet table tbl_nasdaq_daily_prices 
+insert overwrite table tbl_nasdaq_daily_prices_parquet
+select * from tbl_nasdaq_daily_prices;
+
+--load data into our new avro table from another previous table or the same column specification
+insert overwrite table avro_dividend select * from nasdaq_dividends;
+
+</pre>
+
+#### Third Script - Query Tables
+
+<pre>
+USE handson_nasdaq;
+
+-- Find out total volume sale for each stock symbol which has closing price more than $5.
+SELECT stock_symbol, sum(stock_volume) total_volume 
+FROM nasdaq_daily_prices 
+WHERE stock_price_close > 5.0 
+GROUP BY stock_symbol;
+
+-- 0 Records found
+
+-- Find out highest price and highest dividends for each stock symbol.
+-- If one of them does not exist then keep Null values.
+SELECT prices.stock_symbol, prices.record_closing_price, dividends.record_dividend 
+FROM
+(SELECT stock_symbol, max(stock_price_close) record_closing_price 
+ FROM nasdaq_daily_prices 
+ GROUP BY stock_symbol) prices
+FULL OUTER JOIN
+(SELECT stock_symbol, max(dividends) record_dividend 
+ FROM nasdaq_dividends 
+ GROUP BY stock_symbol) dividends
+ON prices.stock_symbol = dividends.stock_symbol
 
 </pre>
 
