@@ -1,7 +1,10 @@
-## NASDAQ and NYSE Trading Database Creation
+## NASDAQ and NYSE Trading Project
 
 ### Problem Statement
 Create a database in Hive called <i>handson_nasdaq</i> that will hold the NASDAQ daily stock and NYSE daily stock dividends tables in Hive in different formats (text, avro, and parquet). Also, demonstrate altering and renaming of these Hive tables.
+
+### Objective
+To demonstrate database and table creation capabilities in Hive, which includes creation of data in these tables in different format (text, avro, and parquet).
 
 ### Hive Script
 
