@@ -2,6 +2,7 @@
 The Airline On-time Performance data for multiple years is available in a zipped format at [Statistical Computing Statistical Graphics](http://stat-computing.org/). As mentioned on this web site, the data originally comes from [Bureau of Transportation Statistics - RITA](http://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp).
 
 ### Variable Descriptions
+<pre>
 No  Name	Description
 1	  Year	1987-2008
 2	  Month	1-12
@@ -32,3 +33,5 @@ No  Name	Description
 27	NASDelay	in minutes
 28	SecurityDelay	in minutes
 29	LateAircraftDelay	in minutes
+</pre>
+
