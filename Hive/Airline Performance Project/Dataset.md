@@ -8,11 +8,11 @@ No  Name  Description
 2     Month	1-12
 3     DayofMonth  1-31
 4     DayOfWeek   1 (Monday) - 7 (Sunday)
-5	 DepTime	actual departure time (local, hhmm)
-6	 CRSDepTime	scheduled departure time (local, hhmm)
-7	 ArrTime	actual arrival time (local, hhmm)
-8	 CRSArrTime	scheduled arrival time (local, hhmm)
-9	 UniqueCarrier	unique carrier code
+5	DepTime	actual departure time (local, hhmm)
+6	CRSDepTime	scheduled departure time (local, hhmm)
+7	ArrTime	actual arrival time (local, hhmm)
+8	CRSArrTime	scheduled arrival time (local, hhmm)
+9	UniqueCarrier	unique carrier code
 10	FlightNum	flight number
 11	TailNum	plane tail number
 12	ActualElapsedTime	in minutes
