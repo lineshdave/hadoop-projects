@@ -4,8 +4,8 @@ The Airline On-time Performance data for multiple years is available in a zipped
 ### Variable Descriptions
 <pre>
 No      Name           Description
-1       Year	         1987-2008
-2       Month	         1-12
+1       Year	        1987-2008
+2       Month	        1-12
 3       DayofMonth      1-31
 4       DayOfWeek       1 (Monday) - 7 (Sunday)
 5	DepTime	actual departure time (local, hhmm)
