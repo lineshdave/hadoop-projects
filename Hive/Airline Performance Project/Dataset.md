@@ -35,3 +35,16 @@ No      Name           Description
 29	LateAircraftDelay	in minutes
 </pre>
 
+### Data Description
+The data consists of flight arrival and departure details for all commercial flights within the USA, from October 1987 to April 2008. This is a large dataset: there are nearly 120 million records in total, and takes up 1.6 gigabytes of space compressed and 12 gigabytes when uncompressed. To make sure that you're not overwhelmed by the size of the data, we've provide two brief introductions to some useful tools: linux command line tools and sqlite, a simple sql database.
+For this project, three years of data - 2006 through 2008 was used.
+
+### Data Challenge
+The aim of the data expo is to provide a graphical summary of important features of the data set. This is intentionally vague in order to allow different entries to focus on different aspects of the data, but here are a few ideas to get you started:
+<OL
+<LI>When is the best time of day/day of week/time of year to fly to minimise delays?</LI>
+<LI>Do older planes suffer more delays?</LI>
+<LI>How does the number of people flying between different locations change over time?</LI>
+<LI>How well does weather predict plane delays?</LI>
+<LI>Can you detect cascading failures as delays in one airport create delays in others? Are there critical links in the system?</LI>
+</OL>
