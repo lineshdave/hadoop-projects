@@ -41,7 +41,7 @@ For this project, three years of data - 2006 through 2008 was used.
 
 ### Data Challenge
 The aim of the data expo is to provide a graphical summary of important features of the data set. This is intentionally vague in order to allow different entries to focus on different aspects of the data, but here are a few ideas to get you started:
-<OL
+<OL>
 <LI>When is the best time of day/day of week/time of year to fly to minimise delays?</LI>
 <LI>Do older planes suffer more delays?</LI>
 <LI>How does the number of people flying between different locations change over time?</LI>
