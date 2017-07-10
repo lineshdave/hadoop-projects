@@ -187,3 +187,6 @@ No rows affected (38.132 seconds)
 </pre>
 
 #### HDFS Structure
+![image](https://user-images.githubusercontent.com/19809692/28000846-8082b828-64f6-11e7-896d-2b12d6907920.png)
+![image](https://user-images.githubusercontent.com/19809692/28000856-9a6dbc24-64f6-11e7-8193-69ba219d4c72.png)
+![image](https://user-images.githubusercontent.com/19809692/28000877-ba9acaa0-64f6-11e7-87f2-95d0bb548269.png)
