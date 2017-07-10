@@ -1,6 +1,5 @@
 ### Dropping Partitions
-A Partition once dropped from a hive metastore will still be available on the distributed file system not because it is an external table.<BR>
-So there will have to be a hdfs command to drop the file as well along with altering table in HIVE as given in the example below.
+A Partitioned table once dropped from a Hive metastore will still be available in the distributed file system because it is an external table. So a hdfs command to drop the file will have to be executed along with altering the table in Hive to remove a Partitioned table. An example is given below.
 
 ### Example
 
