@@ -259,3 +259,9 @@ No rows affected (127.018 seconds)
 </pre>
 
 ### HDFS Snapshot
+#### HDFS Setup Due to First Table
+![image](https://user-images.githubusercontent.com/19809692/28031668-0532fdc4-6576-11e7-8632-729a385ab32b.png)
+![image](https://user-images.githubusercontent.com/19809692/28031697-1fdc38b6-6576-11e7-9eea-2e420b0e1b64.png)
+#### HDFS Setup Due to Second Table
+![image](https://user-images.githubusercontent.com/19809692/28031725-3c2a74f6-6576-11e7-95ca-42bbc16a32ce.png)
+![image](https://user-images.githubusercontent.com/19809692/28031768-68206660-6576-11e7-8a8d-2da21df08856.png)
