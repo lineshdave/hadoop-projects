@@ -88,11 +88,11 @@ INFO  : Partition ok_airline_ld.pq_airline_timing_part{year=2007} stats: [numFil
 No rows affected (42.287 seconds)
 </pre>
 
-#### HDFS Structure Snapshot
+#### HDFS Structure Snapshot [imdemocloud](https://iop-bi-master.imdemocloud.com:8443/gateway/default/hdfs/explorer.html#/user/ldave2001)
 ![image](https://user-images.githubusercontent.com/19809692/28000435-c0170a28-64f3-11e7-9e3e-abffd728eab8.png)
 ![image](https://user-images.githubusercontent.com/19809692/28000475-e6f57986-64f3-11e7-94ba-85d993b95771.png)
 
-### Example-2 (Two Columns)
+### Example-2 (Two Columns) [imdemocloud](https://iop-bi-master.imdemocloud.com:8443/gateway/default/hdfs/explorer.html#/user/ldave2001)
 #### Table Creation
 <pre>
 -- create an external parquet table with partition (by year, month) on airline timing
