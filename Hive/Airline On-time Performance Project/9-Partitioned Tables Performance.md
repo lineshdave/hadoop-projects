@@ -1,4 +1,4 @@
-### Performance Partitions
+## Partitioned Tables Performance
 Test the performance of queries against the partitioned tables in comparison with the non-partitioned tables. Consider especially the number of mappers and reducers used in the MapReducers Tasks rather than just focussing on the query execution time.
 
 #### Query-1
