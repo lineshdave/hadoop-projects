@@ -93,7 +93,7 @@ INFO  : Ended Job = job_1494894036184_3307
 12 rows selected (21.585 seconds)
 </pre>
 
-#### Partitioned Table-2 QUery 
+#### Partitioned Table-2 Query 
 <pre>
 select month, count(1) from pq_airline_timing_part2 where year = 2006 group by month;
 </pre>
@@ -172,7 +172,7 @@ INFO  : Ended Job = job_1494894036184_3309
 1 row selected (20.535 seconds)
 </pre>
 
-#### Partitioned Table-1 QUery 
+#### Partitioned Table-1 Query 
 <pre>
 select count(1) from pq_airline_timing_part where year = 2006 and month=1;
 </pre>
@@ -205,7 +205,7 @@ INFO  : Ended Job = job_1494894036184_3310
 1 row selected (19.53 seconds)
 </pre>
 
-#### Partitioned Table-2 QUery 
+#### Partitioned Table-2 Query 
 <pre>
 select count(1) from pq_airline_timing_part2 where year = 2006 and month=1;
 </pre>
