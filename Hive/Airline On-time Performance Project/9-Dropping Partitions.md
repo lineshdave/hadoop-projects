@@ -6,10 +6,12 @@ A Partitioned table once dropped from a Hive metastore will still be available i
 #### Alter Hive Table
 <pre>
 alter table pq_airline_timing_part drop partition(year=2006);
+alter table pq_airline_timing_part2 drop partition(year=2006, month=1);
 </pre>
 
 #### Remove HDFS File (Partitioned Hive Table)
 <pre>
 hdfs dfs -rm -R /user/cloudera or ldave2001/output/handson_train/airline_time_performance/flight_parquet_partd/year=2006
+hdfs dfs -rm -R /user/cloudera or ldave2001/output/handson_train/airline_time_performance/flight_parquet_partd2/year=2006/month=1
 </pre>
 
