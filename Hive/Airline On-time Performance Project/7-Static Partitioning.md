@@ -1,8 +1,8 @@
 ### Static Partitioning
-Hive tables can be partitioned on column values (example - year) in order to reduce the scanning and retrieval of records due to queries from HDFS based systems.
+Hive tables can be partitioned on one or more column values (example - year) in order to reduce the scanning and retrieval of records due to queries from HDFS based systems.
 
 ### Example-1 (One Column)
-#### Creation
+#### Table Creation
 <pre>
 -- create an external parquet table with partition (by year) on airline timing
 create external table pq_airline_timing_part
@@ -58,10 +58,9 @@ select
 from airline_timing where year = 2007;
 
 -- above insert statement results in the following mapreduce task shown in the next section
-
 </pre>
 
-#### MapReduce Task for Static Partition
+#### MapReduce Task Output due to Static Partition
 <pre>
 INFO  : Number of reduce tasks is set to 0 since there's no reduce operator
 INFO  : number of splits:7
@@ -89,12 +88,12 @@ INFO  : Partition ok_airline_ld.pq_airline_timing_part{year=2007} stats: [numFil
 No rows affected (42.287 seconds)
 </pre>
 
-#### HDFS Structure
+#### HDFS Structure Snapshot
 ![image](https://user-images.githubusercontent.com/19809692/28000435-c0170a28-64f3-11e7-9e3e-abffd728eab8.png)
 ![image](https://user-images.githubusercontent.com/19809692/28000475-e6f57986-64f3-11e7-94ba-85d993b95771.png)
 
 ### Example-2 (Two Columns)
-#### Creation
+#### Table Creation
 <pre>
 -- create an external parquet table with partition (by year, month) on airline timing
 create external table pq_airline_timing_part2
@@ -151,7 +150,7 @@ from airline_timing where year = 2007 and month = 1;
 -- above insert statement results in the following mapreduce task shown in the next section
 </pre>
 
-#### MapReduce Task for Static Partition
+#### MapReduce Task Output due to Static Partition
 <pre>
 INFO  : Number of reduce tasks is set to 0 since there's no reduce operator
 INFO  : number of splits:7
@@ -186,7 +185,7 @@ INFO  : Partition ok_airline_ld.pq_airline_timing_part2{year=2007, month=1} stat
 No rows affected (38.132 seconds)
 </pre>
 
-#### HDFS Structure
+#### HDFS Structure Snapshot
 ![image](https://user-images.githubusercontent.com/19809692/28000846-8082b828-64f6-11e7-896d-2b12d6907920.png)
 ![image](https://user-images.githubusercontent.com/19809692/28000856-9a6dbc24-64f6-11e7-8193-69ba219d4c72.png)
 ![image](https://user-images.githubusercontent.com/19809692/28000877-ba9acaa0-64f6-11e7-87f2-95d0bb548269.png)
