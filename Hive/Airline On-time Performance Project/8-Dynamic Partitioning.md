@@ -1,5 +1,6 @@
 ### Dynamic Partitioning
 
+#### Hive Tables with Dynamic Partitions Creation
 <pre>
 -- set dynamic partitioning parameters in Hive before re-inserting data in tables
 set hive.exec.dynamic.partition=true;
@@ -77,7 +78,7 @@ from airline_timing ;
 </pre>
 
 
-### MapReduce Tasks Executed
+### MapReduce Tasks Execution
 <pre>
 #### FIRST DYNAMIC PARTITIONED TABLE
 
@@ -256,3 +257,5 @@ INFO  : Partition ok_airline_ld.pq_airline_timing_part2{year=2008, month=8} stat
 INFO  : Partition ok_airline_ld.pq_airline_timing_part2{year=2008, month=9} stats: [numFiles=1, numRows=540908, totalSize=10391485, rawDataSize=14604516]
 No rows affected (127.018 seconds)
 </pre>
+
+### HDFS Snapshot
