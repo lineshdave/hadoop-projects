@@ -1,12 +1,12 @@
-## Total Volume of Stocks (subset of Stocks)
+# Total Volume of Stocks (subset of Stocks)
 
-### Problem Statement
+## Problem Statement
 Find the total stock volume of each traded stock found in the subset of the dataset uploaded in the HDFS directory. Store the results in a fashion ordered by stock volume in a descending order.
 
-### Algorithm
+## Algorithm
 ![pig first example algorithm](https://cloud.githubusercontent.com/assets/19809692/26765343/2561ac20-4948-11e7-9956-40d2b3a3101d.JPG)
 
-### Pig Script
+## Pig Script
 <pre>
 raw_data = LOAD '/user/cloudera/rawdata/handson_train/nasdaq_daily_prices' using PigStorage(',')
            AS (exchange:chararray,stock_symbol:chararray,date:chararray,stock_price_open:float,
@@ -22,7 +22,8 @@ STORE sorted_data INTO '/user/cloudera/output/handson_train/pig/nasdaq_daily_pri
       USING PigStorage(',');
 </pre>
 
-### Output
+## Output
 An output file part-r-00000 is created in the following HDFS directory - <i>/user/cloudera/output/handson_train/pig/nasdaq_daily_prices/tot_stock_volume along with the <i>_SUCCESS</i> file to mark the successful completion and running of the above script. This script can be run in the GRUNT interactive Pig environment.
 
+## HDFS Snapshot
 ![image](https://user-images.githubusercontent.com/19809692/27015497-c9083b02-4edc-11e7-9f06-466f723ea3d4.png)
