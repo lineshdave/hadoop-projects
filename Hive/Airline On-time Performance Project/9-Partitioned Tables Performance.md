@@ -1,9 +1,9 @@
-## Partitioned Tables Performance
+# Partitioned Tables Performance
 Test the performance of queries against the partitioned tables in comparison to the non-partitioned tables. Consider especially the number of mappers and reducers used in the MapReducers Tasks rather than just focussing on the query execution time.
 
-### Query-1
+## Query-1
 
-#### Non-partitioned Table Query 
+### Non-partitioned Table Query 
 <pre>
 select month, count(1) from pq_airline_timing where year = 2006 group by month;
 </pre>
@@ -49,7 +49,7 @@ INFO  : Ended Job = job_1494894036184_3306
 12 rows selected (19.471 seconds)
 </pre>
 
-#### Partitioned Table-1 Query 
+### Partitioned Table-1 Query 
 <pre>
 select month, count(1) from pq_airline_timing_part where year=2006 group by month;
 </pre>
@@ -93,7 +93,7 @@ INFO  : Ended Job = job_1494894036184_3307
 12 rows selected (21.585 seconds)
 </pre>
 
-#### Partitioned Table-2 Query 
+### Partitioned Table-2 Query 
 <pre>
 select month, count(1) from pq_airline_timing_part2 where year = 2006 group by month;
 </pre>
@@ -137,9 +137,9 @@ INFO  : Ended Job = job_1494894036184_3308
 12 rows selected (20.366 seconds)
 </pre>
 
-### Query-2
+## Query-2
 
-#### Non-partitioned Table Query 
+### Non-partitioned Table Query 
 <pre>
 select count(1) from pq_airline_timing where year = 2006 and month=1;
 </pre>
@@ -172,7 +172,7 @@ INFO  : Ended Job = job_1494894036184_3309
 1 row selected (20.535 seconds)
 </pre>
 
-#### Partitioned Table-1 Query 
+### Partitioned Table-1 Query 
 <pre>
 select count(1) from pq_airline_timing_part where year = 2006 and month=1;
 </pre>
@@ -205,7 +205,7 @@ INFO  : Ended Job = job_1494894036184_3310
 1 row selected (19.53 seconds)
 </pre>
 
-#### Partitioned Table-2 Query 
+### Partitioned Table-2 Query 
 <pre>
 select count(1) from pq_airline_timing_part2 where year = 2006 and month=1;
 </pre>
