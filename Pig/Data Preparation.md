@@ -65,7 +65,7 @@ tagId,tag
 3,18th century
 </pre>
 
-## Shell Script
+### Shell Script
 <pre>
 # Download the ml-latest zip file from the movielens web site
 wget http://files.grouplens.org/datasets/movielens/ml-latest.zip
@@ -86,6 +86,6 @@ hdfs dfs -moveFromLocal ml-latest/genome-tags.csv /user/cloudera/rawdata/handson
 hdfs dfs -moveFromLocal ml-latest/genome-scores.csv /user/cloudera/rawdata/handson_train/movielens/latest/genome.scores
 </pre>
 
-## Data File Placement
+### Data File Placement
 
 The data files list above are placed in multiple user-created sub-directories in HDFS named above within the main directory: - <i>/user/cloudera/rawdata/handson_train/movielens/latest/</i>.
