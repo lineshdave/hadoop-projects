@@ -1,7 +1,7 @@
 # Dynamic Partitioning
 Quite similar to Static Partitioning, Hive tables can also be partitioned dynamically on one or more column values (example - year) in order to reduce the scanning and retrieval of records due to queries from HDFS based systems. This type of partitioning is more efficient and effective in systems and for tables where values within the column being  partitioned grows dynamically. 
 
-## Hive Tables with Dynamic Partitions Creation
+## Creating Hive Tables with Dynamic Partitions
 <pre>
 -- set dynamic partitioning parameters in Hive before re-inserting data in tables
 set hive.exec.dynamic.partition=true;
