@@ -169,12 +169,12 @@ ON prices.stock_symbol = dividends.stock_symbol
 -- Snapshot of the output from the above query is shown below
 </pre>
 
-## Hive Browser Output (Database/Table View)
+## Hive Browser Snapshot (Database/Table View)
 ![image](https://user-images.githubusercontent.com/19809692/27840823-548f1372-60ca-11e7-864a-0be1bb16aed6.png)
 
-## Hive Browser Output (Database/Table View)
+## Hive Warehouse View
 ![image](https://user-images.githubusercontent.com/19809692/27840815-31c34034-60ca-11e7-88e3-e7c8dae07eac.png)
 
-## Query Output Snapshot
+## Query Output
 ![image](https://user-images.githubusercontent.com/19809692/27843156-db54f93a-60de-11e7-8612-2b5826f863dc.png)
 
