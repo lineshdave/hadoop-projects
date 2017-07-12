@@ -1,6 +1,6 @@
-### Export hdfs files into MySQL Database
+# Export hdfs files into MySQL Database
 
-#### Step:1
+## Step:1
 Create database and the underlying tables
 
 <pre>
@@ -13,7 +13,7 @@ create table nyse_dividends (exchange varchar(20), stock_symbol varchar(5), date
 create table altered_nyse_dividends (stock_symbol varchar(5), value float(10,2), datestring varchar(20), exchange varchar(20));
 </pre>
 
-#### Step:2
+## Step:2
 Use sqoop-export command to export the hdfs data available in file(s) to the MySQL database and tables created in Step-1
 
 <pre>
