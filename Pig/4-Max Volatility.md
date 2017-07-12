@@ -1,9 +1,9 @@
-## Maximum Volatility of Stocks (subset of Stocks)
+# Maximum Volatility of Stocks (subset of Stocks)
 
-### Problem Statement
+## Problem Statement
 Find the record with max volatility for each stock. Volatility is  stock_price_high - stock_price_low.
 
-### Algorithm
+## Algorithm
 <pre>
 -- 1. get the data
 -- 2. remove header
@@ -19,7 +19,7 @@ Find the record with max volatility for each stock. Volatility is  stock_price_h
 -- on v.key = n.key
 </pre>
 
-### Pig Script
+## Pig Script
 <pre>
 data = LOAD '/user/cloudera/rawdata/handson_train/nasdaq_daily_prices' using PigStorage(',')
        AS (exchange:chararray,stock_symbol:chararray,date:chararray,stock_price_open:float,
@@ -59,7 +59,8 @@ STORE j_data INTO '/user/cloudera/output/handson_train/pig/nasdaq_daily_prices/m
       USING PigStorage('|');
 </pre>
 
-### Output
+## Output
 An output file <i>part-r-00000</i> is created in the following HDFS directory - <i>/user/cloudera/output/handson_train/pig/nasdaq_daily_prices/max_volatility_rec</i> along with the <i>_SUCCESS</i> file to mark the successful completion and running of the above script. This script can be run in the GRUNT interactive Pig environment.
 
+## HDFS Snapshot
 ![image](https://user-images.githubusercontent.com/19809692/27015481-70b9012a-4edc-11e7-8c01-8ca52bb822e8.png)
