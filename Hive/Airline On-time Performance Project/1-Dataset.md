@@ -1,6 +1,6 @@
-# Datasets
+# Dataset
 
-## Data Location
+## Location
 The Airline On-time Performance data for multiple years is available in a zipped format at [Statistical Computing Statistical Graphics](http://stat-computing.org/). As mentioned on this web site, the data originally comes from [Bureau of Transportation Statistics - RITA](http://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp).
 
 ## Variable Descriptions
