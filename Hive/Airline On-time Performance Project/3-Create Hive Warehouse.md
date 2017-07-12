@@ -1,5 +1,7 @@
-### Create Hive Warehouse
+# Create Hive Warehouse
+
+## Script
 <pre>
--- In cloud, first crist the local user Hive directory
+-- On cloud (not required on local cloudera instance), first crist the local user Hive directory
 hdfs dfs -mkdir -p /user/ldave2001/hive/warehouse
 </pre>
