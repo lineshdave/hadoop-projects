@@ -22,9 +22,7 @@ linesh.sources.sc1.type=spooldir
 linesh.sources.sc1.channels=chl
 linesh.sources.sc1.spoolDir=/home/cloudera/hadoop-training-projects/flume/simple_dir_spool/watch
 
-
 linesh.channels.chl.type=memory
-
 
 linesh.sinks.snk.type=hdfs
 linesh.sinks.snk.channel=chl
@@ -44,7 +42,7 @@ linesh.sinks.snk.hdfs.fileSuffix=.tags
 ./linesh-commands.txt (make sure that execute permission on this commands script/file is provided)
 </pre>
 
-##### <i>Files can be copied in the local directory while the commands script is running or prior. A file tags.csv is available for copying/moving into the "watch" directory.</i>
+#### <i>Files can be copied in the local directory while the commands script is running or prior. A file tags.csv is available for copying/moving into the "watch" directory.</i>
 
 ## Snapshot of the HDFS Directory Output (using Hue)
 ![flume-simple-watch-dir snapshot](https://cloud.githubusercontent.com/assets/19809692/26755640/424e6998-485f-11e7-8461-3d48335b2004.JPG)
