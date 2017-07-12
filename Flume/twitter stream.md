@@ -1,6 +1,6 @@
-## Twitter Stream Data to Hadoop HDFS
+# Twitter Stream Data to Hadoop HDFS
 
-### Twitter App Creation
+## Twitter App Creation
 <pre>
 Go to Twitter Website (https://apps.twitter.com)
 
@@ -13,14 +13,14 @@ Copy Consumer Key (API), Consumer Secret Key, Access Token, and Access Secret To
 
 ![twitter apps creation](https://cloud.githubusercontent.com/assets/19809692/26755279/45f14194-4858-11e7-99fb-d5210138551b.JPG)
 
-### Flume command setup
+## Flume command setup
 <pre>
 hdfs dfs -mkdir -p /user/cloudera/output/handson_train/flume/tweets
 
 flume-ng agent --name LinTwitterAgent --conf-file LinTwitterAgent.properties  --classpath flume-sources-1.0-SNAPSHOT.jar
 </pre>
 
-### Flume Configuration File Creation
+## Flume Configuration File Creation
 <pre>
 # Naming the components on the current agent.
 LinTwitterAgent.sources = twitSource
@@ -47,13 +47,13 @@ LinTwitterAgent.channels.fChannel.transactionCapacity = 1000
 LinTwitterAgent.channels.fChannel.checkpointDir=/home/cloudera/hadoop-training-projects/flume/twitter-stream/file_channel_dir/chkpint_dir
 </pre>
 
-### Flume command execution
+## Flume command execution
 <pre>
 # Execute the command setup file or individual commands as shown above in the Flume Command Setup
 Example:
 ./lin-flume-command.txt (ensure that execute permission has been provided
 </pre>
 
-### Hadoop HDFS Output Snapshot
+## Hadoop HDFS Output Snapshot
 ![flume-twitter-stream output](https://cloud.githubusercontent.com/assets/19809692/26755252/8c3e41ca-4857-11e7-9664-291364a2d227.JPG)
 
