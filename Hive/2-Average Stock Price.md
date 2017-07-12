@@ -31,7 +31,7 @@ The table for this exercise is created using command line -- beeline -u jdbc:hiv
 SELECT stock_symbol, avg(stock_price_close) AS avg_stock_close_price FROM daily_prices
 GROUP BY stock_symbol;
 
-## Output Extract
+## Output (Hue) Extract
 ![image](https://user-images.githubusercontent.com/19809692/27836774-e1d6d6dc-60ae-11e7-8dbd-f7905cf02c8d.png)
 ![image](https://user-images.githubusercontent.com/19809692/27836834-29729cce-60af-11e7-983d-2ad56eefd258.png)
 
