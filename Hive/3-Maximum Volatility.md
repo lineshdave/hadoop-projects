@@ -1,12 +1,12 @@
-## Maximum Volatility of Stocks (subset of Stocks)
+# Maximum Volatility of Stocks (subset of Stocks)
 
-### Problem Statement
+## Problem Statement
 Find the record with max volatility for each stock. Volatility is  stock_price_high - stock_price_low.
 
-### Data file
+## Data file
 This is the same dataset/file that is placed is HDFS (<i>/user/cloudera/rawdata/handson_train/nasdaq_daily_prices</i>) and is used for the Pig exercise
 
-### Hive Table Creation
+## Hive Table Creation
 Out of the four techniques to creat Hive tables - 1) using sqoop, 2) hive web or beemax; 3) beeline/java/shell script; and, 4) HBASE metastrore.
 
 The table for this exercise is created using command line -- beeline -u jdbc:hive://quickstart:cloudera:10000:
@@ -28,7 +28,7 @@ The table for this exercise is created using command line -- beeline -u jdbc:hiv
 . . . . . . . . . . . . . . . . . . . . .> TBLPROPERTIES("skip.header.line.count" = "1");
 </pre>
 
-### Hive Query
+## Hive Query
 <pre>
 SELECT a.stock_symbol, b.stock_price_high, b.stock_price_low, b.stock_volume, a.volatility
 FROM 
@@ -40,5 +40,5 @@ WHERE a.stock_symbol = b.stock_symbol
 AND a.volatility = b.stock_price_high-b.stock_price_low;
 </pre>
 
-### Output Extract
+## Output (Hue) Extract
 ![image](https://user-images.githubusercontent.com/19809692/27837646-6b96b6e0-60b3-11e7-982b-fa334758a942.png)
