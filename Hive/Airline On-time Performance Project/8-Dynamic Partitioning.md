@@ -1,6 +1,7 @@
-### Dynamic Partitioning
+# Dynamic Partitioning
+Quite similar to Static Partitioning, Hive tables can also be partitioned dynamically on one or more column values (example - year) in order to reduce the scanning and retrieval of records due to queries from HDFS based systems. This type of partitioning is more efficient and effective in systems and for tables where values within the column being  partitioned grows dynamically. 
 
-#### Hive Tables with Dynamic Partitions Creation
+## Hive Tables with Dynamic Partitions Creation
 <pre>
 -- set dynamic partitioning parameters in Hive before re-inserting data in tables
 set hive.exec.dynamic.partition=true;
@@ -78,7 +79,7 @@ from airline_timing ;
 </pre>
 
 
-### MapReduce Tasks Execution
+## MapReduce Tasks Execution
 <pre>
 #### FIRST DYNAMIC PARTITIONED TABLE
 
@@ -258,10 +259,10 @@ INFO  : Partition ok_airline_ld.pq_airline_timing_part2{year=2008, month=9} stat
 No rows affected (127.018 seconds)
 </pre>
 
-### HDFS Snapshot
-#### HDFS Setup Due to First Table
+## HDFS Snapshot
+### HDFS Setup Due to First Hive Table
 ![image](https://user-images.githubusercontent.com/19809692/28031668-0532fdc4-6576-11e7-8632-729a385ab32b.png)
 ![image](https://user-images.githubusercontent.com/19809692/28031697-1fdc38b6-6576-11e7-9eea-2e420b0e1b64.png)
-#### HDFS Setup Due to Second Table
+### HDFS Setup Due to Second Hive Table
 ![image](https://user-images.githubusercontent.com/19809692/28031725-3c2a74f6-6576-11e7-95ca-42bbc16a32ce.png)
 ![image](https://user-images.githubusercontent.com/19809692/28031768-68206660-6576-11e7-8a8d-2da21df08856.png)
