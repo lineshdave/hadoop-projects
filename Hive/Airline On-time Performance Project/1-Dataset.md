@@ -1,7 +1,9 @@
-### Datasets
+# Datasets
+
+## Data Location
 The Airline On-time Performance data for multiple years is available in a zipped format at [Statistical Computing Statistical Graphics](http://stat-computing.org/). As mentioned on this web site, the data originally comes from [Bureau of Transportation Statistics - RITA](http://www.transtats.bts.gov/OT_Delay/OT_DelayCause1.asp).
 
-### Variable Descriptions
+## Variable Descriptions
 <pre>
 No      Name           Description
 1       Year	        1987-2008
@@ -35,11 +37,11 @@ No      Name           Description
 29	LateAircraftDelay	in minutes
 </pre>
 
-### Data Description
+## Data Description
 The data consists of flight arrival and departure details for all commercial flights within the USA, from October 1987 to April 2008. This is a large dataset: there are nearly 120 million records in total, and takes up 1.6 gigabytes of space compressed and 12 gigabytes when uncompressed. To make sure that you're not overwhelmed by the size of the data, we've provide two brief introductions to some useful tools: linux command line tools and sqlite, a simple sql database.
 For this project, three years of data - 2006 through 2008 was used.
 
-### Data Challenge
+## Data Challenge
 The aim of the data expo is to provide a graphical summary of important features of the data set. This is intentionally vague in order to allow different entries to focus on different aspects of the data, but here are a few ideas to get you started:
 <OL>
 <LI>When is the best time of day/day of week/time of year to fly to minimise delays?</LI>
