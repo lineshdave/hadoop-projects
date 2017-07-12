@@ -1,9 +1,9 @@
-## Larger than Average Volatility for each Stock (subset of Stocks)
+# Larger than Average Volatility for each Stock (subset of Stocks)
 
-### Problem Statement
+## Problem Statement
 Find records that have volatility greater than its average volatility for each stock in the entire dataset. Order the results by the stock symbol and store in a pipe delimited file
 
-### Algorithm
+## Algorithm
 1. Load all records from the dataset.
 2. Filter the header line from the loaded records.
 3. Add calculated volatiltiy information to each record.
@@ -13,7 +13,7 @@ Find records that have volatility greater than its average volatility for each s
 7. Add the other record columns to the filtered stock records from step-6 above.
 8. Save the entire updated stock records using the PigStorage.
 
-### Pig Script
+## Pig Script
 <pre>
 data = LOAD '/user/cloudera/rawdata/handson_train/nasdaq_daily_prices' using PigStorage(',')
        AS (exchange:chararray,stock_symbol:chararray,date:chararray,stock_price_open:double,
@@ -52,7 +52,8 @@ projected_data_2 = FOREACH wo_header_data GENERATE
                           (chararray)(stock_price_high - stock_price_low),
 </pre>
 
-### Output
+## Output
 An output file part-r-00000 is created in the following HDFS directory - <i>/user/cloudera/output/handson_train/pig/nasdaq_daily_prices/avg_volatility_rec</i> along with the <i>_SUCCESS</i> file to mark the successful completion and running of the above script. This script can be run in the GRUNT interactive Pig environment OR executed from the shell command line using the "-f" option (pig -f xxxx.pig).
 
+## HDFS Snapshot
 ![image](https://user-images.githubusercontent.com/19809692/27015430-903294ae-4edb-11e7-862d-97b40b6bb87e.png)
