@@ -1,7 +1,9 @@
-## Hive SerDe
+# Hive SerDe
 ![image](https://user-images.githubusercontent.com/19809692/28099608-8a6e84fc-668b-11e7-8ac1-4510192063a8.png)
-### Examples
-#### Setting up airport table
+
+## Examples
+
+### Setting up airport table
 <pre>
 -- create external table for airports
 create external table airports (
@@ -66,7 +68,7 @@ INFO  : Ended Job = job_1494894036184_3381
 1 row selected (16.461 seconds)
 </pre>
 
-#### Setting up carriers table
+### Setting up carriers table
 <pre>
 -- create external table for carriers
 create external table carriers (
@@ -120,7 +122,7 @@ INFO  : Ended Job = job_1494894036184_3382
 +-------+--+
 </pre?
 
-#### Setting up plane_info table
+### Setting up plane_info table
 <pre>
 -- create external table for plane information
 create external table plane_info (
@@ -188,7 +190,7 @@ INFO  : Ended Job = job_1494894036184_3383
 </pre>
 
 
-#### Setting up a new HDFS file with non default delimiter
+### Setting up a new HDFS file with non default delimiter
 <pre>
 -- inserting into hdfs directory as text file with non-default delimiter
 insert overwrite directory '/user/ldave2001/output/handson_train/hive/insrt_directory'
