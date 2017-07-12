@@ -1,16 +1,16 @@
-## NASDAQ and NYSE Trading Project
+# NASDAQ and NYSE Trading Project
 
-### Problem Statement
+## Problem Statement
 Create a database in Hive called <i>handson_nasdaq</i> that will hold the NASDAQ daily stock and NYSE daily stock dividends tables in Hive in different formats (text, avro, and parquet). Also, demonstrate altering and renaming of these Hive tables.
 
-### Objective
+## Objective
 To demonstrate database and table creation capabilities in Hive, which includes creation of data in these tables in different format (text, avro, and parquet).
 
-### Hive Script
+## Hive Script
 
 This is a 3-parts script. The first script is used to mostly used to create, rename, and alter tables; second is used to load the tables; and, the third is used to query these tables.
 
-#### First Script - Table Creation
+### First Script - Table Creation
 
 <pre>
 --Drop tables and database if exists
@@ -121,7 +121,7 @@ show create table avro_dividend;
 
 </pre>
 
-#### Second Script - Loading Tables
+### Second Script - Loading Tables
 
 <pre>
 use handson_nasdaq;
@@ -139,7 +139,7 @@ insert overwrite table avro_dividend select * from nasdaq_dividends;
 
 </pre>
 
-#### Third Script - Query Tables
+### Third Script - Query Tables
 
 <pre>
 USE handson_nasdaq;
@@ -169,10 +169,12 @@ ON prices.stock_symbol = dividends.stock_symbol
 -- Snapshot of the output from the above query is shown below
 </pre>
 
-### Output
+## Hive Browser Output (Database/Table View)
 ![image](https://user-images.githubusercontent.com/19809692/27840823-548f1372-60ca-11e7-864a-0be1bb16aed6.png)
+
+## Hive Browser Output (Database/Table View)
 ![image](https://user-images.githubusercontent.com/19809692/27840815-31c34034-60ca-11e7-88e3-e7c8dae07eac.png)
 
-#### Query Output Snapshot
+## Query Output Snapshot
 ![image](https://user-images.githubusercontent.com/19809692/27843156-db54f93a-60de-11e7-8612-2b5826f863dc.png)
 
