@@ -23,7 +23,7 @@ STORE sorted_data INTO '/user/cloudera/output/handson_train/pig/nasdaq_daily_pri
 </pre>
 
 ## Output
-An output file part-r-00000 is created in the following HDFS directory - <i>/user/cloudera/output/handson_train/pig/nasdaq_daily_prices/tot_stock_volume along with the <i>_SUCCESS</i> file to mark the successful completion and running of the above script. This script can be run in the GRUNT interactive Pig environment.
+An output file part-r-00000 is created in the following HDFS directory - <i>/user/cloudera/output/handson_train/pig/nasdaq_daily_prices/tot_stock_volume</i> along with the <i>_SUCCESS</i> file to mark the successful completion and running of the above script. This script can be run in the GRUNT interactive Pig environment.
 
 ## HDFS Snapshot
 ![image](https://user-images.githubusercontent.com/19809692/27015497-c9083b02-4edc-11e7-9f06-466f723ea3d4.png)
