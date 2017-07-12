@@ -1,11 +1,11 @@
-## Average Stock Price (subset of Stocks)
+# Average Stock Price (subset of Stocks)
 
-### Problem Statement
+## Problem Statement
 Find the average closing price for each stock in the entire dataset. Order the results by the stock symbol and store in a pipe delimited file
 
-### Algorithm
+## Algorithm
 
-### Pig Script
+## Pig Script
 <pre>
 data = LOAD '/user/cloudera/rawdata/handson_train/nasdaq_daily_prices' 
        USING PigStorage(',') 
@@ -32,7 +32,8 @@ STORE sorted_data INTO '/user/cloudera/output/handson_train/pig/nasdaq_daily_pri
       USING PigStorage('|');
 </pre>
 
-### Output
+## Output
 An output file part-r-00000 is created in the following HDFS directory - <i>/user/cloudera/output/handson_train/pig/nasdaq_daily_prices/avg_closing_price</i> along with the <i>_SUCCESS</i> file to mark the successful completion and running of the above script. This script can be run in the GRUNT interactive Pig environment.
 
+## HDFS Snapshot
 ![image](https://user-images.githubusercontent.com/19809692/27015461-12f254b0-4edc-11e7-93f0-d5d10c892bef.png)
