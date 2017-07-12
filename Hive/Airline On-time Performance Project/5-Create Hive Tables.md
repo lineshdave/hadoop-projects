@@ -1,6 +1,6 @@
-### Create Hive Tables
+# Create Hive Tables
 
-#### Managed Table
+## Managed Table
 <pre>
 use ok_airline_ld;
 
@@ -17,9 +17,9 @@ row format delimited
 fields terminated by ',';
 </pre>
 
-#### External Tables
+## External Tables
 
-##### Text Reference
+#### Text Reference
 For the next airline_timing external table, the following pig script has to be run that will create a file in HDFS. This file will then be pointed to or refernced by the Hive table.
 
 ###### Pig Script <i>(run with command "pig -f ...")</i>
@@ -64,7 +64,7 @@ rel_data = FOREACH headless_data GENERATE year, month, dayOfMonth, dayOfWeek,
 STORE rel_data INTO '/user/ldave2001/rawdata/handson_train/airline_performance/flights_processed' Using PigStorage(',');
 </pre>
 
-###### Hive Script
+## Back to Hive Tables Creation
 <pre>
 -- create an external table on airline timing
 create external table airline_timing
@@ -80,7 +80,7 @@ fields terminated by ','
 location '/user/ldave2001/rawdata/handson_train/airline_performance/flights_processed';
 </pre>
 
-##### Parquet Reference
+## Parquet Reference
 <pre>
 -- creates an external table table on airline timing using parquet format
 create external table pq_airline_timing
