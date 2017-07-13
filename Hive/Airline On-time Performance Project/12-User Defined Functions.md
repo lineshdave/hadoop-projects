@@ -1,9 +1,10 @@
 # User Defined Functions
 
+## User Defined Functions (UDF)
 User Defined Functions are one-to-one based (pass one and get one) and they lead to only mapping tasks, but no reductions. A couple of examples of UDFs are functions like UPPER(), CONCAT(), etc. as shown in the examples below.
 They can be used for column mappings, filterings, transformations, encryptions, and projections. 
 
-## Examples:
+### Examples:
 <pre>
 0: jdbc:hive2://iop-bi-master.imdemocloud.com> select upper(city) from airports limit 5;
 +-------------------+--+
