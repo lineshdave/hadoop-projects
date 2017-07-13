@@ -28,12 +28,12 @@ They can be used for column mappings, filterings, transformations, encryptions, 
 | Perry-Warsaw, Perry, NY               |
 +---------------------------------------+--+
 5 rows selected (0.035 seconds)
-</pre
+</pre>
 
 ## User Defined Aggregate Functions (UDAF)
 
 Many-to-one - pass in many and get one. You must use Group by in UDAFs. They execute both map and reduce tasks.
 
-## User Define Tabluar Function (UDTF)
+## User Defined Tabluar Function (UDTF)
 
 One-to-many - pass in one and get many. There are very few such functions. One of the examples of UDTF is "explode". This is useful for exploding fields like arrarys or tables. Basically, it breaks a tabular field and returns it as one single unit field.
