@@ -10,7 +10,6 @@ If Cloud environment such as imdemocloud is used:<br>
 <LI>Login to Hive using the beeline command (use appropriate database)</LI>
 <LI>Execute the following command "add jar hdfs://iop-bi-master.imdemocloud.com:8020/user/ldave2001/HiveSwarm-1.0-SNAPSHOT.jar"</LI>
 </OL>
-<br>
 
 If the same Cloud environment is used as above, then the JAR file can be added as follows:<br>
 <OL>
