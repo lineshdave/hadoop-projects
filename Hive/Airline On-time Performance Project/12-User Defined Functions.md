@@ -38,3 +38,5 @@ Many-to-one - pass in many and get one. You must use Group by in UDAFs. They exe
 ## User Defined Tabluar Function (UDTF)
 
 One-to-many - pass in one and get many. There are very few such functions. One of the examples of UDTF is "explode". This is useful for exploding fields like arrarys or tables. Basically, it breaks a tabular field and returns it as one single unit field.
+
+A Lateral View is a inline view that is generated from a UDTF that you can use in a select clause of a SQL.
